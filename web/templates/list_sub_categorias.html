@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Listar sub-categorias - Flask</title>
+</head>
+<body style="padding:20px">
+    <h3>Listar sub-categorias</h3>
+    {% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Nome</th>   
+                <th>Listar sub-categorias</th>  
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td><a href="list_subcat/list?super_categoria={{ record[0] }}">LISTAR</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
+</body>
+</html>

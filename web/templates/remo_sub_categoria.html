@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Remover sub-categoria - Flask</title>
+</head>
+<body style="padding:20px">
+    {% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Nome da supercategoria</th>
+                <th>Nome da sub-categoria</th>      
+                <th>Remover sub-categoria</th>  
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td><a href="remo_subcat/super/?super_categoria={{ record[0] }}&categoria={{ record[1] }}">REMOVER SUB</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
+</body>
+</html>

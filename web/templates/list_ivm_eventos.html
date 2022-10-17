@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Listar eventos de reposição - Flask</title>
+</head>
+<body style="padding:20px">
+    <h3>Listar evento de reposição</h3>
+    <p>Irá listar os eventos de reposição da seguinte IVM:</p>
+    <p>- Número de série: {{ params.get('num_serie') }}</p>
+    <p>- Fabricante: {{ params.get('fabricante') }}</p>
+    <form action="update" method="post">
+        <p><input type="hidden" name="num_serie" value="{{ params.get('num_serie') }}"/></p>
+        <p><input type="hidden" name="fabricante" value="{{ params.get('fabricante') }}"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+</body>
+</html>

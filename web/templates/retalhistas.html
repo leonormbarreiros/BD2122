@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Listar retalhistas - Flask</title>
+</head>
+<body style="padding:20px">
+    <p><td><a href="novo_ret">Inserir Retalhista</a></td></p>
+    {% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>TIN</th>
+                <th>Nome</th>    
+                <th>Apagar</th>  
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td><a href="remo_ret?tin={{ record[0] }}">APAGAR</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p> Erro: não foi possível obter dados da base de dados!</p>
+{% endif %}
+</body>
+</html>
